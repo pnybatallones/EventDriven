@@ -3,11 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preparatory Assessment #2</title>
+    <title>Preparatory Assessment #3</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <table id="calendar"></table>
+    <div class="form">
+        <form action="#" action="" method="#" id="mainform" name="mainform">
+            <input type="number" id="subtotal" name="subtotal" placeholder="Subtotal" min="100" max="10000" oninput="jsFunction()">
+            <label for="subtotal"> User input from 100 to 10,000</label>
+            <br><br>
+            <input type="number" id="tax" name="tax" placeholder="Tax" value="" disabled="true">
+            <label for="tax">+12% Tax</label>
+            <br><br>
+            <input type="number" id="total" name="total" placeholder="Total" value="" disabled="true">
+            <label for="tax">Subtotal + Tax</label>
+            <br><br>
+            <input type="number" id="amountpaid" name="amountpaid" placeholder="Amount Paid" value="" disabled="true" oninput="displayChange()">
+            <label for="tax">Minimum is base on Subtotal+Tax</label>
+            <br><br>
+            <input type="number" id="change" name="change" placeholder="Change" value="" disabled="true">
+            <label for="tax">Amount Paid - Total</label>
+            <br><br>
+            
+          <button id="pay" name="pay" disabled="true">Pay</button>
+          </form>
+    </div>
 
     <script type="text/javascript" src="js/my.js"></script>
 </body>
