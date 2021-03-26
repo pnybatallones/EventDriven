@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summative Assessment</title>
+
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.css" >
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+      <a href="index.html" class="brand-logo"><img src="../img/nav.png" class="logo black" alt="PNYB Icon" height="75"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" style="color: white;">Home</a></li>
+            <li class="breadcrumb-item"><a href="https://www.facebook.com/yap0009/" style="color: white;">Contacts</a></li>
+        </ol>
+    </nav>
+
+    <!-- BODY -->
+    <div class="container pt-5">
+        <button class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">NEW &nbsp; <i class="fa fa-plus" aria-hidden="true"></i></button>
+        <!-- NEW ORDER MODAL -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModal">New Order</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <input type="text" class="form-control" id="ornumber" placeholder="OR Number"> 
+                        <br>
+                        <input type="text" class="form-control" id="customerName" placeholder="Customer Name"> 
+                    </form>
+                </div>
+                <div class="modal-body">
+                    <hr style=" border-color: gray; margin-top : 0;">
+
+                    <!-- ITEMS -->
+                    <form action="">
+                        <h5>Items</h5>
+
+                        <!-- ROW FOR ITEM 1 -->
+                        <div class="row mb-3">
+                            <div class=" col-4">
+                                <select class="form-control" id="iitem1"></select>
+                            </div>
+                            <div class=" col-3">
+                                <input class="form-control" type="number" id="pprice1" name="pprice1" placeholder="Price" value="" min="1.00" oninput="computeSubtotal1()">
+                            </div>
+                            <div class=" col-2">
+                                <input class="form-control" type="number" id="qqty1" name="qqty1" placeholder="Quantity" value="" min="1" oninput="computeSubtotal1()">
+                            </div>
+                            <div class=" col-3">
+                                <input class="form-control" type="number" id="ssubtotal1" name="ssubtotal1" placeholder="Subtotal" value="" disabled="true" >
+                            </div>
+                        </div>
+        
+                        <!-- ROW FOR ITEM 2 -->
+                        <div class="row mb-3">
+                            <div class=" col-4">
+                                <select class="form-control" id="iitem2"></select>
+                            </div>
+                            <div class=" col-3">
+                                <input class="form-control" type="number" id="pprice2" name="pprice2" placeholder="Price" value="" min="1.00" oninput="computeSubtotal2()">
+                            </div>
+                            <div class=" col-2">
+                                <input class="form-control" type="number" id="qqty2" name="qqty2" placeholder="Quantity" value="" min="1" oninput="computeSubtotal2()"> 
+                            </div>
+                            <div class=" col-3">
+                                <input class="form-control" type="number" id="ssubtotal2" name="ssubtotal2" placeholder="Subtotal" value="" disabled="true">
+                            </div>
+                        </div>
+                        
+                        <!-- ROW FOR ITEM 3 -->
+                        <div class="row mb-3">
+                            <div class=" col-4">
+                                <select class="form-control" id="iitem3"></select>
+                            </div>
+                            <div class=" col-3">
+                                <input class="form-control" type="number" id="pprice3" name="pprice3" placeholder="Price" value="" min="1.00" oninput="computeSubtotal3()">
+                            </div>
+                            <div class=" col-2">
+                                <input class="form-control" type="number" id="qqty3" name="qqty3" placeholder="Quantity" value="" min="1" oninput="computeSubtotal3()">
+                            </div>
+                            <div class=" col-3">
+                                <input class="form-control" type="number" id="ssubtotal3" name="ssubtotal3" placeholder="Subtotal" value="" disabled="true">
+                            </div>
+                        </div>
+        
+                        <!-- ROW FOR ITEM 4 -->
+                        <div class="row mb-3">
+                            <div class=" col-4">
+                                <select class="form-control" id="iitem4"></select>
+                            </div>
+                            <div class=" col-3">
+                                <input class="form-control" type="number" id="pprice4" name="pprice4" placeholder="Price" value="" min="1.00" oninput="computeSubtotal4()">
+                            </div>
+                            <div class=" col-2">
+                                <input class="form-control" type="number" id="qqty4" name="qqty4" placeholder="Quantity" value="" min="1" oninput="computeSubtotal4()">
+                            </div>
+                            <div class=" col-3">
+                                <input class="form-control" type="number" id="ssubtotal4" name="ssubtotal4" placeholder="Subtotal" value="" disabled="true">
+                            </div>
+                        </div>
+                  </form>
+                </div>
+
+                <div class="modal-footer">  
+                  <button type="button" class="btn btn-success" onclick="saveEverything()">SAVE</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <br><br>
+        <!-- TABLE -->
+        <table class="table table-striped" id="tlists">
+            <tr class="text-center table-primary">
+                <th scope="col">#</th>
+                <th scope="col">Order #</th>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Total</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- VIEW ORDER MODAL -->
+    <div class="modal fade" id="viewItem" tabindex="-1" aria-labelledby="viewItemLabel" aria-hidden="true" onclick="clearViewModal()">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="viewItemLabel">View Order</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              </button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <input type="text" class="form-control" id="ornumberView" placeholder="OR Number" style="width: 50%;" disabled>  
+                    <br>
+                    <input type="text" class="form-control" id="customerNameView" placeholder="Customer Name" disabled> 
+                </form>
+            </div>
+            <div class="modal-body">
+                <hr style=" border-color: gray; margin-top : 0;">
+
+                <!-- ITEMS -->
+                <form action="">
+                    <h5>Items</h5>
+                    <div class="container" >   
+                      <div class="row" id="viewItemBody" style="width: 100%; ">
+                          <!-- APPEND MODAL CONTENT FROM VIEW ORDER JS -->
+                      </div>
+                  </div>
+                </form>
+            </div>
+            <div class="modal-footer">  
+              <button type="button" class="btn btn-danger" id="exit" data-dismiss="modal" >EXIT</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <script src="https://bootswatch.com/_vendor/jquery/dist/jquery.min.js"></script>
+    <script src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+    <!-- JS -->
+    <script>  
+        const iitem1 = document.getElementById("iitem1");
+        const iitem2 = document.getElementById("iitem2");
+        const iitem3 = document.getElementById("iitem3");
+        const iitem4 = document.getElementById("iitem4");
+
+        var ORNumberView = document.getElementById('ornumberView')
+        var customerNameView = document.getElementById('customerNameView')
+
+        var viewItem = document.getElementById('viewItem')
+
+    </script>
+    <script scr="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src="../js/computeSubtotal.js"></script>
+    <script src="../js/populateSelect.js"></script>
+    <script src="../js/saveOrder.js"></script>
+    <script src="../js/loadTable.js"></script>
+    <script src="../js/viewOrder.js"></script>
+
+</body>
+
+</html>
